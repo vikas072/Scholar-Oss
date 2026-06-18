@@ -9,7 +9,7 @@
 <br>
 
 <a href="https://dsa-web-dev-study-tracker-169110553333.asia-southeast1.run.app">
-<img src="https://img.shields.io/badge/🚀%20LIVE%20DEMO-Visit%20Scholar%20OS-success?style=for-the-badge">
+<img src="scholarios_logo_banner.png/🚀%20LIVE%20DEMO-Visit%20Scholar%20OS-success?style=for-the-badge">
 </a>
 
 <br><br>
