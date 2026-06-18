@@ -1,0 +1,140 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "User preferences and settings",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "The unique user identifier matching request.auth.uid" },
+        "displayName": { "type": "string", "description": "Display name of the user" },
+        "email": { "type": "string", "format": "email", "description": "User email address" },
+        "createdAt": { "type": "integer", "description": "Creation timestamp in UTC milliseconds" }
+      },
+      "required": ["userId", "displayName", "email", "createdAt"]
+    },
+    "StudyLog": {
+      "title": "Study Log",
+      "description": "Daily logging of general study details",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "date": { "type": "string", "format": "date", "description": "The study date formatted YYYY-MM-DD" },
+        "category": { "type": "string", "enum": ["dsa", "web_dev", "core_cse", "lab_practical"] },
+        "title": { "type": "string" },
+        "duration": { "type": "integer", "description": "Duration spent in minutes" },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "integer" }
+      },
+      "required": ["id", "userId", "date", "category", "title", "duration", "notes", "createdAt"]
+    },
+    "DsaProblem": {
+      "title": "DSA Problem",
+      "description": "Details about a solved or tracked Data Structures and Algorithms problem",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "problemName": { "type": "string" },
+        "platform": { "type": "string" },
+        "topic": { "type": "string" },
+        "difficulty": { "type": "string", "enum": ["easy", "medium", "hard"] },
+        "status": { "type": "string", "enum": ["solved", "revise_needed", "attempted"] },
+        "solutionCode": { "type": "string" },
+        "notes": { "type": "string" },
+        "url": { "type": "string" },
+        "dateSolved": { "type": "string", "format": "date" },
+        "createdAt": { "type": "integer" }
+      },
+      "required": ["id", "userId", "problemName", "platform", "topic", "difficulty", "status", "dateSolved", "createdAt"]
+    },
+    "WebDevLog": {
+      "title": "Web Development Log",
+      "description": "Log of Web Development learnings or features implemented",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "projectTitle": { "type": "string" },
+        "skillsUsed": { "type": "array" },
+        "learnings": { "type": "string" },
+        "demoUrl": { "type": "string" },
+        "codeUrl": { "type": "string" },
+        "dateLogged": { "type": "string", "format": "date" },
+        "createdAt": { "type": "integer" }
+      },
+      "required": ["id", "userId", "projectTitle", "skillsUsed", "learnings", "dateLogged", "createdAt"]
+    },
+    "Roadmap": {
+      "title": "Study Roadmap",
+      "description": "Customized study plan containing scheduled DSA and Web Dev topics and exit milestones",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique roadmap ID" },
+        "userId": { "type": "string", "description": "Unique owner user ID" },
+        "data": { "type": "object", "description": "Full roadmap payload nested data object" },
+        "createdAt": { "type": "integer", "description": "Timestamp when saved" }
+      },
+      "required": ["id", "userId", "data", "createdAt"]
+    },
+    "Bookmark": {
+      "title": "Bookmark",
+      "description": "Saved external links to engineering resources, documentation, and lecture playlists",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "url": { "type": "string" },
+        "category": { "type": "string", "enum": ["documentation", "lecture_playlist", "engineering_resource", "other"] },
+        "description": { "type": "string" },
+        "createdAt": { "type": "integer" }
+      },
+      "required": ["id", "userId", "title", "url", "category", "createdAt"]
+    },
+    "Project": {
+      "title": "Project Progress",
+      "description": "Custom student projects and completion tracking details",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "completion": { "type": "integer", "description": "Percentage completion from 0 to 100" },
+        "createdAt": { "type": "integer" }
+      },
+      "required": ["id", "userId", "name", "completion", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User settings under their unique ID"
+    },
+    "/studyLogs/{logId}": {
+      "schema": "StudyLog",
+      "description": "Log records for tracked sessions"
+    },
+    "/dsaProblems/{problemId}": {
+      "schema": "DsaProblem",
+      "description": "DSA problems logged by students"
+    },
+    "/webDevLogs/{logId}": {
+      "schema": "WebDevLog",
+      "description": "Web Dev projects and logs of skills"
+    },
+    "/roadmaps/{roadmapId}": {
+      "schema": "Roadmap",
+      "description": "AI-generated custom study guides saved by users"
+    },
+    "/bookmarks/{bookmarkId}": {
+      "schema": "Bookmark",
+      "description": "Saved bookmarks logged by students"
+    },
+    "/projects/{projectId}": {
+      "schema": "Project",
+      "description": "Saved student projects tracking completion percentage"
+    }
+  }
+}

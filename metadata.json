@@ -1,0 +1,8 @@
+{
+  "name": "DSA & Web Dev Study Tracker",
+  "description": "A comprehensive, AI-assisted workspace to plan, log, and track daily Data Structures, Algorithms, and Web Development study sessions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

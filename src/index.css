@@ -1,0 +1,268 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #0f172a; /* Slate 900 background */
+  color: #f1f5f9; /* Slate 100 text */
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1e293b; /* Slate 800 */
+}
+::-webkit-scrollbar-thumb {
+  background: #475569; /* Slate 600 */
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b; /* Slate 500 */
+}
+
+/* Markdown rendering styling for chatbot and analysis */
+.markdown-body {
+  line-height: 1.6;
+}
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #f8fafc;
+}
+.markdown-body h1 { font-size: 1.4rem; border-bottom: 1px solid #334155; padding-bottom: 0.25rem; }
+.markdown-body h2 { font-size: 1.2rem; }
+.markdown-body h3 { font-size: 1rem; }
+.markdown-body p { margin-bottom: 0.75rem; color: #cbd5e1; }
+.markdown-body ul, .markdown-body ol { margin-bottom: 0.75rem; padding-left: 1.5rem; list-style-type: disc; }
+.markdown-body pre { background-color: #020617; border: 1px solid #334155; padding: 0.75rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 0.75rem; font-family: var(--font-mono); font-size: 0.85rem; }
+.markdown-body code { font-family: var(--font-mono); font-size: 0.85rem; padding: 0.125rem 0.25rem; background-color: #1e293b; border-radius: 0.25rem; color: #94a3b8; }
+.markdown-body blockquote { border-left: 4px solid #3b82f6; padding-left: 0.75rem; color: #94a3b8; font-style: italic; margin-bottom: 0.75rem; }
+
+/* ==========================================================================
+   LIGHT MODE / ACCESSIBILITY COMPATIBILITY STYLES
+   ========================================================================== */
+
+body.light-theme {
+  background-color: #f8fafc !important; /* Premium airy light background */
+  background-image: radial-gradient(#e2e8f0 1px, transparent 1px) !important;
+  background-size: 24px 24px !important;
+  color: #0f172a !important; /* High contrast legible dark slate */
+}
+
+/* Background conversions */
+body.light-theme .bg-slate-950 {
+  background-color: #f1f5f9 !important; /* Soft light grey bounds */
+  color: #0f172a !important;
+}
+
+body.light-theme .bg-slate-950\/80 {
+  background-color: rgba(241, 245, 249, 0.85) !important;
+}
+
+body.light-theme .bg-slate-950\/60 {
+  background-color: rgba(241, 245, 249, 0.65) !important;
+}
+
+body.light-theme .bg-slate-900 {
+  background-color: #ffffff !important; /* Pure clean white card sheets */
+  color: #0f172a !important;
+}
+
+body.light-theme .bg-slate-900\/50 {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  color: #0f172a !important;
+}
+
+body.light-theme .bg-slate-900\/40 {
+  background-color: rgba(255, 255, 255, 0.7) !important;
+}
+
+body.light-theme .bg-slate-850 {
+  background-color: #f8fafc !important;
+}
+
+body.light-theme .bg-slate-800 {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+body.light-theme .bg-slate-800\/80 {
+  background-color: rgba(241, 245, 249, 0.85) !important;
+}
+
+body.light-theme .bg-slate-800\/60 {
+  background-color: rgba(241, 245, 249, 0.65) !important;
+}
+
+/* Border adjustments - crisp slate-150 and 200 */
+body.light-theme .border-slate-900 {
+  border-color: #cbd5e1 !important;
+}
+
+body.light-theme .border-slate-850 {
+  border-color: #e2e8f0 !important;
+}
+
+body.light-theme .border-slate-805 {
+  border-color: #e2e8f0 !important;
+}
+
+body.light-theme .border-slate-800 {
+  border-color: #e2e8f0 !important; /* Clean premium separation lines */
+}
+
+body.light-theme .border-slate-800\/80 {
+  border-color: rgba(226, 232, 240, 0.8) !important;
+}
+
+body.light-theme .border-slate-700 {
+  border-color: #cbd5e1 !important;
+}
+
+/* Deluxe card shadows on light canvas to replace flat dark frames */
+body.light-theme .bg-slate-900,
+body.light-theme .bg-slate-900\/50 {
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.04), 0 8px 16px -6px rgba(15, 23, 42, 0.03), 0 0 1px 1px rgba(15, 23, 42, 0.01) !important;
+}
+
+/* Typographic overrides to prevent unreadable text */
+/* IMPORTANT FIX: ONLY convert text-white to slate-900 if it\'s not inside a button or colored badge/alert */
+body.light-theme .text-white:not(button *, button, [class*="bg-indigo-"], [class*="bg-emerald-"], [class*="bg-rose-"], [class*="bg-pink-"], [class*="bg-blue-"], [class*="bg-amber-"], [class*="animate-pulse"], [class*="text-emerald-"], .chat-user-bubble *) {
+  color: #0f172a !important; /* Crisp slate 900 for general text-white containers */
+}
+
+body.light-theme .text-slate-100 {
+  color: #0f172a !important;
+}
+
+body.light-theme .text-slate-200 {
+  color: #1e293b !important;
+}
+
+body.light-theme .text-slate-350 {
+  color: #1e293b !important;
+}
+
+body.light-theme .text-slate-300:not(button, button *, a) {
+  color: #334155 !important;
+}
+
+body.light-theme .text-slate-400 {
+  color: #475569 !important; /* High legibility dark iron slate */
+}
+
+body.light-theme .text-slate-500 {
+  color: #64748b !important;
+}
+
+/* Hover effects for tabs/buttons */
+body.light-theme .text-slate-400:hover {
+  color: #0f172a !important;
+}
+
+/* Form field styling: luxurious crisp inputs with bright background */
+body.light-theme input,
+body.light-theme textarea,
+body.light-theme select {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+body.light-theme input::placeholder,
+body.light-theme textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Focus and active input outlines */
+body.light-theme input:focus,
+body.light-theme textarea:focus,
+body.light-theme select:focus {
+  border-color: #4f46e5 !important; /* Indigo primary focus outline */
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1) !important;
+}
+
+/* AI Study Buddy chat area adjustments */
+body.light-theme .chat-user-bubble {
+  background-color: #4f46e5 !important; /* Indigo 600 */
+  color: #ffffff !important;
+}
+
+body.light-theme .chat-user-bubble * {
+  color: #ffffff !important;
+}
+
+body.light-theme .chat-ai-bubble {
+  background-color: #f1f5f9 !important; /* Clean slate 100 bg */
+  color: #0f172a !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* Code and markdown formatting adjustments inside light-theme */
+body.light-theme .markdown-body h1,
+body.light-theme .markdown-body h2,
+body.light-theme .markdown-body h3 {
+  color: #0f172a !important;
+}
+
+body.light-theme .markdown-body h1 {
+  border-bottom-color: #e2e8f0 !important;
+}
+
+body.light-theme .markdown-body p {
+  color: #334155 !important;
+}
+
+body.light-theme .markdown-body pre {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+body.light-theme .markdown-body code {
+  background-color: #e2e8f0 !important;
+  color: #1e293b !important;
+}
+
+body.light-theme .markdown-body blockquote {
+  border-left-color: #4f46e5 !important;
+  color: #475569 !important;
+}
+
+/* Heatmap Grid adjustments */
+body.light-theme #contribution-heatmap .bg-slate-950 {
+  background-color: #e2e8f0 !important; /* Soft base for empty grid squares */
+  border-color: #ffffff !important;
+}
+
+body.light-theme #contribution-heatmap .bg-indigo-950\/70 {
+  background-color: #c7d2fe !important;
+  border-color: #c7d2fe !important;
+}
+
+/* Custom scrollbars inside light theme */
+body.light-theme ::-webkit-scrollbar-track {
+  background: #f8fafc !important;
+}
+
+body.light-theme ::-webkit-scrollbar-thumb {
+  background: #cbd5e1 !important;
+}
+
+body.light-theme ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8 !important;
+}

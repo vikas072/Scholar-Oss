@@ -1,0 +1,148 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // 1. Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Phase 3: Primitive Definitions
+    function isValidId(id) { 
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$'); 
+    }
+    function incoming() { return request.resource.data; }
+    function existing() { return resource.data; }
+    function isSignedIn() { return request.auth != null; }
+    function isVerified() { return isSignedIn() && request.auth.token.email_verified == true; }
+    function isOwner(userId) { return isSignedIn() && request.auth.uid == userId; }
+
+    // Helper validation functions
+    function isValidUser(data) {
+      return data.userId is string && data.userId.size() <= 128
+        && data.displayName is string && data.displayName.size() <= 128
+        && data.email is string && data.email.size() <= 128
+        && data.createdAt is int;
+    }
+
+    function isValidStudyLog(data) {
+      return data.id is string && data.id.size() <= 128
+        && data.userId is string && data.userId.size() <= 128
+        && data.date is string && data.date.size() <= 16
+        && (data.category == 'dsa' || data.category == 'web_dev' || data.category == 'core_cse' || data.category == 'lab_practical')
+        && data.title is string && data.title.size() <= 200
+        && data.duration is int && data.duration >= 0
+        && data.notes is string && data.notes.size() <= 10000
+        && data.createdAt is int;
+    }
+
+    function isValidDsaProblem(data) {
+      return data.id is string && data.id.size() <= 128
+        && data.userId is string && data.userId.size() <= 128
+        && data.problemName is string && data.problemName.size() <= 200
+        && data.platform is string && data.platform.size() <= 100
+        && data.topic is string && data.topic.size() <= 100
+        && (data.difficulty == 'easy' || data.difficulty == 'medium' || data.difficulty == 'hard')
+        && (data.status == 'solved' || data.status == 'revise_needed' || data.status == 'attempted')
+        && (!data.keys().hasAll(['solutionCode']) || (data.solutionCode is string && data.solutionCode.size() <= 30000))
+        && (!data.keys().hasAll(['notes']) || (data.notes is string && data.notes.size() <= 5000))
+        && (!data.keys().hasAll(['url']) || (data.url is string && data.url.size() <= 2000))
+        && data.dateSolved is string && data.dateSolved.size() <= 16
+        && data.createdAt is int;
+    }
+
+    function isValidWebDevLog(data) {
+      return data.id is string && data.id.size() <= 128
+        && data.userId is string && data.userId.size() <= 128
+        && data.projectTitle is string && data.projectTitle.size() <= 200
+        && data.skillsUsed is list && data.skillsUsed.size() <= 50
+        && data.learnings is string && data.learnings.size() <= 10000
+        && (!data.keys().hasAll(['demoUrl']) || (data.demoUrl is string && data.demoUrl.size() <= 2000))
+        && (!data.keys().hasAll(['codeUrl']) || (data.codeUrl is string && data.codeUrl.size() <= 2000))
+        && data.dateLogged is string && data.dateLogged.size() <= 16
+        && data.createdAt is int;
+    }
+
+    function isValidRoadmap(data) {
+      return data.id is string && data.id.size() <= 128
+        && data.userId is string && data.userId.size() <= 128
+        && data.data is map
+        && data.createdAt is int;
+    }
+
+    function isValidBookmark(data) {
+      return data.id is string && data.id.size() <= 128
+        && data.userId is string && data.userId.size() <= 128
+        && data.title is string && data.title.size() <= 200
+        && data.url is string && data.url.size() <= 2000
+        && (data.category == 'documentation' || data.category == 'lecture_playlist' || data.category == 'engineering_resource' || data.category == 'other')
+        && (!data.keys().hasAll(['description']) || (data.description is string && data.description.size() <= 3000))
+        && data.createdAt is int;
+    }
+
+    function isValidProject(data) {
+      return data.id is string && data.id.size() <= 128
+        && data.userId is string && data.userId.size() <= 128
+        && data.name is string && data.name.size() <= 200
+        && (!data.keys().hasAll(['description']) || (data.description is string && data.description.size() <= 10000))
+        && data.completion is int && data.completion >= 0 && data.completion <= 100
+        && data.createdAt is int;
+    }
+
+    // 2. Collection Rules
+    match /users/{userId} {
+      allow get: if isOwner(userId);
+      allow create: if isOwner(userId) && isValidUser(incoming());
+      allow update: if isOwner(userId) && isValidUser(incoming()) && incoming().userId == existing().userId;
+      allow delete: if isOwner(userId);
+    }
+
+    match /studyLogs/{logId} {
+      allow get: if isSignedIn() && existing().userId == request.auth.uid;
+      allow list: if isSignedIn() && resource.data.userId == request.auth.uid;
+      allow create: if isSignedIn() && isVerified() && incoming().userId == request.auth.uid && isValidId(logId) && isValidStudyLog(incoming());
+      allow update: if isSignedIn() && isVerified() && existing().userId == request.auth.uid && incoming().userId == request.auth.uid && isValidStudyLog(incoming()) && incoming().id == existing().id;
+      allow delete: if isSignedIn() && isVerified() && existing().userId == request.auth.uid;
+    }
+
+    match /dsaProblems/{problemId} {
+      allow get: if isSignedIn() && existing().userId == request.auth.uid;
+      allow list: if isSignedIn() && resource.data.userId == request.auth.uid;
+      allow create: if isSignedIn() && isVerified() && incoming().userId == request.auth.uid && isValidId(problemId) && isValidDsaProblem(incoming());
+      allow update: if isSignedIn() && isVerified() && existing().userId == request.auth.uid && incoming().userId == request.auth.uid && isValidDsaProblem(incoming()) && incoming().id == existing().id;
+      allow delete: if isSignedIn() && isVerified() && existing().userId == request.auth.uid;
+    }
+
+    match /webDevLogs/{logId} {
+      allow get: if isSignedIn() && existing().userId == request.auth.uid;
+      allow list: if isSignedIn() && resource.data.userId == request.auth.uid;
+      allow create: if isSignedIn() && isVerified() && incoming().userId == request.auth.uid && isValidId(logId) && isValidWebDevLog(incoming());
+      allow update: if isSignedIn() && isVerified() && existing().userId == request.auth.uid && incoming().userId == request.auth.uid && isValidWebDevLog(incoming()) && incoming().id == existing().id;
+      allow delete: if isSignedIn() && isVerified() && existing().userId == request.auth.uid;
+    }
+
+    match /roadmaps/{roadmapId} {
+      allow get: if isSignedIn() && existing().userId == request.auth.uid;
+      allow list: if isSignedIn() && resource.data.userId == request.auth.uid;
+      allow create: if isSignedIn() && isVerified() && incoming().userId == request.auth.uid && isValidId(roadmapId) && isValidRoadmap(incoming());
+      allow update: if isSignedIn() && isVerified() && existing().userId == request.auth.uid && incoming().userId == request.auth.uid && isValidRoadmap(incoming()) && incoming().id == existing().id;
+      allow delete: if isSignedIn() && isVerified() && existing().userId == request.auth.uid;
+    }
+
+    match /bookmarks/{bookmarkId} {
+      allow get: if isSignedIn() && existing().userId == request.auth.uid;
+      allow list: if isSignedIn() && resource.data.userId == request.auth.uid;
+      allow create: if isSignedIn() && isVerified() && incoming().userId == request.auth.uid && isValidId(bookmarkId) && isValidBookmark(incoming());
+      allow update: if isSignedIn() && isVerified() && existing().userId == request.auth.uid && incoming().userId == request.auth.uid && isValidBookmark(incoming()) && incoming().id == existing().id;
+      allow delete: if isSignedIn() && isVerified() && existing().userId == request.auth.uid;
+    }
+
+    match /projects/{projectId} {
+      allow get: if isSignedIn() && existing().userId == request.auth.uid;
+      allow list: if isSignedIn() && resource.data.userId == request.auth.uid;
+      allow create: if isSignedIn() && isVerified() && incoming().userId == request.auth.uid && isValidId(projectId) && isValidProject(incoming());
+      allow update: if isSignedIn() && isVerified() && existing().userId == request.auth.uid && incoming().userId == request.auth.uid && isValidProject(incoming()) && incoming().id == existing().id;
+      allow delete: if isSignedIn() && isVerified() && existing().userId == request.auth.uid;
+    }
+  }
+}
