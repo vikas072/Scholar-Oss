@@ -1,241 +1,240 @@
 <div align="center">
 
-# 🎯 DSA & Web Dev Study Tracker
-
-### Stop saving study plans. Start finishing them.
-
-🌐 **Live App**
-https://dsa-web-dev-study-tracker-169110553333.asia-southeast1.run.app
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=280&color=0:0B1020,50:4F46E5,100:7C3AED&text=Scholar%20OS&fontColor=ffffff&fontSize=60&animation=fadeIn" />
 
 <br>
 
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript)
-![Google Cloud](https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=google-cloud)
-![Open Source](https://img.shields.io/badge/Open_Source-Yes-success?style=for-the-badge)
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=24&pause=1000&color=7C3AED&center=true&vCenter=true&width=900&lines=The+Ultimate+AI-Powered+Student+Operating+System;Track+Progress+📈;Study+Smarter+🧠;Stay+Focused+🎯;Build+Your+Future+🚀" />
+
+<br>
+
+<a href="https://dsa-web-dev-study-tracker-169110553333.asia-southeast1.run.app">
+<img src="https://img.shields.io/badge/🚀%20LIVE%20DEMO-Visit%20Scholar%20OS-success?style=for-the-badge">
+</a>
+
+<br><br>
+
+<img src="https://img.shields.io/badge/Status-Live-success?style=for-the-badge" />
+<img src="https://img.shields.io/badge/React-Frontend-61DAFB?style=for-the-badge&logo=react" />
+<img src="https://img.shields.io/badge/Cloud-Google%20Cloud-4285F4?style=for-the-badge&logo=google-cloud" />
+<img src="https://img.shields.io/badge/AI-Powered-8A2BE2?style=for-the-badge" />
 
 </div>
 
 ---
 
-## 🧠 The Problem
+# 🌟 What is Scholar OS?
 
-As a student learning **DSA, Web Development, and AI**, I struggled with:
+Scholar OS is an **AI-powered productivity platform** designed specifically for students, developers, and lifelong learners.
 
-- Losing track of completed topics
-- Inconsistent study routines
-- No clear learning roadmap
-- Lack of motivation and progress visibility
+Instead of using multiple apps for planning, tracking, searching, and studying, Scholar OS brings everything into one intelligent workspace.
 
-So I built a platform that helps me stay accountable and consistent.
+It helps users:
 
----
-
-## ✨ What It Does
-
-📚 Organizes study topics
-
-✅ Tracks completed tasks
-
-📈 Visualizes progress
-
-🎯 Maintains learning goals
-
-🔥 Encourages daily consistency
-
-💻 Works across devices
+- 🧠 Learn faster
+- 🎯 Stay focused
+- 📈 Track progress
+- 🚀 Build consistency
+- 💡 Organize knowledge
 
 ---
 
-## 🚀 Live Demo
-
-### Try it yourself
-
-👉 **https://dsa-web-dev-study-tracker-169110553333.asia-southeast1.run.app**
-
----
-
-## 📸 Preview
+# 📸 Preview
 
 <p align="center">
-  <img src="screenshots/dashboard.png" width="90%">
+  <img src="screenshots/dashboard.png" width="100%">
 </p>
 
 ---
 
-## 🛠 Tech Stack
+# ⚡ Core Features
 
-```text
-Frontend   → React
-Styling    → CSS / Tailwind
-Deployment → Google Cloud Run
-Versioning → Git & GitHub
+<table>
+<tr>
+<td align="center">
+
+### 🧠 StudyBuddy AI
+
+Get instant learning assistance and study support.
+
+</td>
+
+<td align="center">
+
+### 🔍 ScholarSearch
+
+AI-powered search across references, documentation, and knowledge resources.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="center">
+
+### 📚 DSA Log Tracker
+
+Track algorithm practice, concepts, and learning milestones.
+
+</td>
+
+<td align="center">
+
+### 💻 Web Dev Portfolio
+
+Manage projects and development progress in one place.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="center">
+
+### ⏱️ Focus Console
+
+Deep work sessions, sprint mode, and productivity tracking.
+
+</td>
+
+<td align="center">
+
+### 📊 Goal Analytics
+
+Visualize progress and maintain learning consistency.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td align="center">
+
+### 📅 AI Study Planner
+
+Generate structured learning plans and schedules.
+
+</td>
+
+<td align="center">
+
+### ☁️ Cloud Sync
+
+Access your learning workspace from anywhere.
+
+</td>
+
+</tr>
+</table>
+
+---
+
+# 🚀 Live Demo
+
+<div align="center">
+
+### Experience Scholar OS
+
+<a href="https://dsa-web-dev-study-tracker-169110553333.asia-southeast1.run.app">
+
+<img src="https://img.shields.io/badge/OPEN%20APPLICATION-CLICK%20HERE-blueviolet?style=for-the-badge&logo=google-chrome">
+
+</a>
+
+</div>
+
+---
+
+# 🎯 Why I Built This
+
+As a Computer Science student, I often struggled with:
+
+- Managing multiple study resources
+- Tracking DSA progress
+- Planning learning goals
+- Maintaining consistency
+- Staying focused during deep work sessions
+
+So I built **Scholar OS** — a centralized workspace that combines productivity, AI assistance, study planning, and progress tracking into a single platform.
+
+---
+
+# 🛠 Tech Stack
+
+<div align="center">
+
+| Frontend | Cloud | AI |
+|-----------|--------|----|
+| ⚛️ React | ☁️ Google Cloud Run | 🤖 AI Integration |
+| 🎨 Tailwind CSS | 🚀 Cloud Deployment | 🔍 Intelligent Search |
+| 🟨 JavaScript | 🐙 GitHub | 🧠 Productivity Engine |
+
+</div>
+
+---
+
+# 📊 System Workflow
+
+```mermaid
+flowchart LR
+
+A[📚 Study Goals]
+--> B[🧠 AI Planning]
+
+B --> C[⏱ Focus Sessions]
+
+C --> D[📈 Progress Tracking]
+
+D --> E[🎯 Goal Achievement]
+
+E --> F[🚀 Continuous Growth]
 ```
 
 ---
 
-## 💡 Why I Built This
-
-I'm a **B.Tech CSE (AI) student**.
-
-Instead of using random productivity apps, I wanted a tracker specifically designed for:
-
-- DSA Practice
-- Web Development
-- AI/ML Learning
-- Internship Preparation
-
-This project is part of my journey toward becoming an AI Engineer.
-
----
-
-## 🎯 Future Roadmap
+# 🔮 Future Roadmap
 
 - [ ] AI Study Recommendations
-- [ ] Streak System
-- [ ] Dark Mode
-- [ ] User Authentication
-- [ ] Weekly Analytics
+- [ ] Advanced Analytics Dashboard
+- [ ] Smart Revision Scheduler
+- [ ] Achievement & Gamification System
+- [ ] Team Study Rooms
 - [ ] Mobile App
+- [ ] Personalized Learning Insights
 
 ---
 
-## 👨‍💻 About Me
+# 👨‍💻 Developer
 
-**Vikas Yadav**
+<div align="center">
+
+## Vikas Yadav
 
 🎓 B.Tech CSE (Artificial Intelligence)
 
-🌱 Learning Java, DSA, AI/ML & Cloud
+💡 Aspiring AI / ML Engineer
 
-🔗 GitHub: https://github.com/vikas072
+🔥 Learning DSA in Java • AI/ML • Cloud Computing • Full Stack Development
+
+<a href="https://github.com/vikas072">
+<img src="https://img.shields.io/badge/GitHub-vikas072-black?style=for-the-badge&logo=github">
+</a>
+
+<a href="www.linkedin.com/in/vikas-yadav-4975a731b">
+<img src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin">
+</a>
+
+</div>
 
 ---
 
 <div align="center">
 
-### ⭐ If this project inspires you, consider starring it.
+## ⭐ If you like this project, consider giving it a star!
 
-_"Small progress every day beats motivation once a month."_
-
-</div>- Track Web Development topics
-- Mark completed tasks
-- Organize learning goals
-
-### 📊 Progress Analytics
-- Study progress monitoring
-- Learning streak tracking
-- Performance insights
-
-### 📅 Planning
-- Daily study schedule
-- Weekly targets
-- Task management
-
-### 🎨 User Experience
-- Responsive design
-- Modern UI
-- Mobile-friendly interface
-
----
-
-## 🛠️ Tech Stack
-
-| Technology | Purpose |
-|------------|---------|
-| ⚛️ React | Frontend |
-| 🎨 CSS/Tailwind | Styling |
-| ☁️ Google Cloud Run | Deployment |
-| 🟨 JavaScript | Application Logic |
-| 🐙 GitHub | Version Control |
-
----
-
-## 🚀 Live Application
-
-### Visit the Project
-
-🔗 **Website:**  
-https://dsa-web-dev-study-tracker-169110553333.asia-southeast1.run.app
-
----
-
-
-## 📂 Project Structure
-
-```text
-project/
-│
-├── src/
-├── public/
-├── components/
-├── pages/
-├── assets/
-├── package.json
-└── README.md
-```
-
----
-
-## ⚙️ Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/vikas072/YOUR_REPO_NAME.git
-```
-
-Install dependencies:
-
-```bash
-npm install
-```
-
-Run locally:
-
-```bash
-npm run dev
-```
-
-Build project:
-
-```bash
-npm run build
-```
-
----
-
-## 🎯 Future Improvements
-
-- 🔐 User Authentication
-- ☁️ Cloud Data Sync
-- 📈 Advanced Analytics
-- 🏆 Gamification System
-- 📱 Mobile App Version
-- 🤖 AI Study Recommendations
-
----
-
-## 👨‍💻 Developer
-
-### Vikas Yadav
-
-🎓 B.Tech CSE (Artificial Intelligence)
-
-🌱 Learning:
-- Java & DSA
-- AI/ML
-- Web Development
-- Cloud Technologies
-
-🔗 GitHub: https://github.com/vikas072
-
----
-
-<div align="center">
-
-### ⭐ If you like this project, consider giving it a star!
-
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&pause=1000&color=00C853&center=true&vCenter=true&width=500&lines=Keep+Learning+%F0%9F%9A%80;Keep+Building+%F0%9F%92%BB;Keep+Growing+%F0%9F%8C%B1" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&pause=1000&color=00C853&center=true&vCenter=true&width=600&lines=Learn+Smarter+🧠;Stay+Focused+🎯;Build+Consistency+🔥;Grow+Every+Day+🚀" />
 
 </div>
