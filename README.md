@@ -1,42 +1,124 @@
 <div align="center">
 
-# 🚀 DSA & Web Development Study Tracker
+# 🎯 DSA & Web Dev Study Tracker
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1000&color=7B2FF7&center=true&vCenter=true&width=700&lines=Track+Your+Learning+Journey;DSA+%2B+Web+Development+Progress;Built+with+Modern+Web+Technologies" />
+### Stop saving study plans. Start finishing them.
 
-<p>
-  <img src="https://img.shields.io/badge/Status-Live-success?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Frontend-React-blue?style=for-the-badge&logo=react" />
-  <img src="https://img.shields.io/badge/Cloud-Google%20Cloud-orange?style=for-the-badge&logo=googlecloud" />
-  <img src="https://img.shields.io/badge/Open%20Source-Project-brightgreen?style=for-the-badge" />
-</p>
+🌐 **Live App**
+https://dsa-web-dev-study-tracker-169110553333.asia-southeast1.run.app
 
-🌐 **Live Demo:**  
-👉 https://dsa-web-dev-study-tracker-169110553333.asia-southeast1.run.app
+<br>
+
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript)
+![Google Cloud](https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=google-cloud)
+![Open Source](https://img.shields.io/badge/Open_Source-Yes-success?style=for-the-badge)
 
 </div>
 
 ---
 
-## 📖 About
+## 🧠 The Problem
 
-A productivity-focused study tracker designed for students and developers to manage their learning journey in:
+As a student learning **DSA, Web Development, and AI**, I struggled with:
 
-- 🧠 Data Structures & Algorithms (DSA)
-- 💻 Web Development
-- 📅 Daily Study Planning
-- 📈 Progress Tracking
-- 🎯 Goal Management
+- Losing track of completed topics
+- Inconsistent study routines
+- No clear learning roadmap
+- Lack of motivation and progress visibility
 
-The platform helps users stay consistent, track learning progress, and build strong study habits.
+So I built a platform that helps me stay accountable and consistent.
 
 ---
 
-## ✨ Features
+## ✨ What It Does
 
-### 📚 Learning Management
-- Track DSA topics
-- Track Web Development topics
+📚 Organizes study topics
+
+✅ Tracks completed tasks
+
+📈 Visualizes progress
+
+🎯 Maintains learning goals
+
+🔥 Encourages daily consistency
+
+💻 Works across devices
+
+---
+
+## 🚀 Live Demo
+
+### Try it yourself
+
+👉 **https://dsa-web-dev-study-tracker-169110553333.asia-southeast1.run.app**
+
+---
+
+## 📸 Preview
+
+<p align="center">
+  <img src="screenshots/dashboard.png" width="90%">
+</p>
+
+---
+
+## 🛠 Tech Stack
+
+```text
+Frontend   → React
+Styling    → CSS / Tailwind
+Deployment → Google Cloud Run
+Versioning → Git & GitHub
+```
+
+---
+
+## 💡 Why I Built This
+
+I'm a **B.Tech CSE (AI) student**.
+
+Instead of using random productivity apps, I wanted a tracker specifically designed for:
+
+- DSA Practice
+- Web Development
+- AI/ML Learning
+- Internship Preparation
+
+This project is part of my journey toward becoming an AI Engineer.
+
+---
+
+## 🎯 Future Roadmap
+
+- [ ] AI Study Recommendations
+- [ ] Streak System
+- [ ] Dark Mode
+- [ ] User Authentication
+- [ ] Weekly Analytics
+- [ ] Mobile App
+
+---
+
+## 👨‍💻 About Me
+
+**Vikas Yadav**
+
+🎓 B.Tech CSE (Artificial Intelligence)
+
+🌱 Learning Java, DSA, AI/ML & Cloud
+
+🔗 GitHub: https://github.com/vikas072
+
+---
+
+<div align="center">
+
+### ⭐ If this project inspires you, consider starring it.
+
+_"Small progress every day beats motivation once a month."_
+
+</div>- Track Web Development topics
 - Mark completed tasks
 - Organize learning goals
 
@@ -78,27 +160,6 @@ https://dsa-web-dev-study-tracker-169110553333.asia-southeast1.run.app
 
 ---
 
-## 📸 Screenshots
-
-### Dashboard
-
-```html
-<img src="screenshots/dashboard.png" width="100%">
-```
-
-### Study Tracker
-
-```html
-<img src="screenshots/tracker.png" width="100%">
-```
-
-### Analytics
-
-```html
-<img src="screenshots/analytics.png" width="100%">
-```
-
----
 
 ## 📂 Project Structure
 
