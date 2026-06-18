@@ -42,7 +42,7 @@ It helps users:
 # 📸 Preview
 
 <p align="center">
-  <img src="screenshots/dashboard.png" width="100%">
+  <img src="previewTracker.png" width="100%">
 </p>
 
 ---
